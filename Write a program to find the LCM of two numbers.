@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int gcd(int a, int b) {
+    int temp;
+    while (b != 0) {
+        temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int a, b;
+    int hcf;
+    long long lcm;  
+
+    printf("Enter two positive integers: ");
+    scanf("%d %d", &a, &b);
+
+    if (a <= 0 || b <= 0) {
+        printf("Please enter positive integers only.\n");
+        return 0;
+    }
+
+    hcf = gcd(a, b);
+    lcm = (long long)a * b / hcf;
+
+    printf("LCM of %d and %d is %lld\n", a, b, lcm);
+
+    return 0;
+}
