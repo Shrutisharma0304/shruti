@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main() {
+    long num, temp;
+    int digit;
+    int count[10] = {0};  
+    int i, maxFreq = 0, maxDigit = -1;
+
+    printf("Enter an integer: ");
+    scanf("%ld", &num);
+
+  
+    if (num < 0) {
+        num = -num;
+    }
+
+    temp = num;
+
+    
+    if (temp == 0) {
+        count[0] = 1;
+    } else {
+        
+        while (temp > 0) {
+            digit = temp % 10;
+            count[digit]++;
+            temp /= 10;
+        }
+    }
+
+    
+    for (i = 0; i <= 9; i++) {
+        if (count[i] > maxFreq) {
+            maxFreq = count[i];
+            maxDigit = i;
+        }
+    }
+
+    if (maxDigit == -1) {
+        printf("No digits to analyze.\n");
+    } else {
+        printf("Digit %d occurs the most times (%d times).\n", maxDigit, maxFreq);
+    }
+
+    return 0;
+}
