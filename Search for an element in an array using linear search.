@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100];
+    int n, i, key;
+    int found = 0;
+    int position = -1;  
+
+    printf("Enter the number of elements (max 100): ");
+    scanf("%d", &n);
+
+    if (n <= 0 || n > 100) {
+        printf("Invalid number of elements.\n");
+        return 1;
+    }
+
+    
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+
+    
+    printf("\nEnter the element to search: ");
+    scanf("%d", &key);
+
+    
+    for (i = 0; i < n; i++) {
+        if (arr[i] == key) {
+            found = 1;
+            position = i;  // store index (0-based)
+            break;         // stop at first occurrence
+        }
+    }
+
+    
+    if (found) {
+        printf("Element %d found at position %d (0-based index).\n", key, position);
+    } else {
+        printf("Element %d not found in the array.\n", key);
+    }
+
+    return 0;
+}
