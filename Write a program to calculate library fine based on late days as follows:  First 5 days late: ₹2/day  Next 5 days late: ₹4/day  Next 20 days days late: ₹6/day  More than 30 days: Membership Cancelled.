@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main() {
+    int days;
+    float fine = 0.0f;
+  
+    printf("Enter number of late days: ");
+    scanf("%d", &days);
+
+    if (days < 0) {
+        printf("Invalid input. Days cannot be negative.\n");
+        return 0;
+    }
+
+    if (days > 30) {
+        printf("Membership Cancelled (more than 30 days late).\n");
+    
+        fine += 5 * 2;
+        
+        fine += 5 * 4;
+        
+        fine += 20 * 6;
+        printf("Fine up to 30 days: ₹%.2f\n", fine);
+    } else {
+      
+        if (days <= 5) {
+            fine = days * 2;
+        } else {
+            fine = 5 * 2;  
+
+          
+            if (days <= 10) {
+                fine += (days - 5) * 4;
+            } else {
+                fine += 5 * 4;  
+
+        
+                fine += (days - 10) * 6;
+            }
+        }
+
+        printf("Library fine: ₹%.2f\n", fine);
+    }
+
+    return 0;
+}
