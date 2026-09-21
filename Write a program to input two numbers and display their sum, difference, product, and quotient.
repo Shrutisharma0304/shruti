@@ -5,26 +5,22 @@ int main() {
     int sum, diff, product;
     float quotient;
 
-    // Input two numbers
     printf("Enter first number: ");
     scanf("%d", &num1);
 
     printf("Enter second number: ");
     scanf("%d", &num2);
 
-    // Calculations
     sum = num1 + num2;
     diff = num1 - num2;
     product = num1 * num2;
 
-    // Check for division by zero
     if (num2 != 0) {
         quotient = (float)num1 / num2;
     } else {
         quotient = 0; // or handle differently
     }
 
-    // Display results
     printf("Sum: %d\n", sum);
     printf("Difference: %d\n", diff);
     printf("Product: %d\n", product);
