@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int find_first(int nums[], int size, int target) {
+    int low = 0, high = size - 1;
+    int first = -1;
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            first = mid;
+            high = mid - 1; 
+        } else if (nums[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return first;
+}
+int find_last(int nums[], int size, int target) {
+    int low = 0, high = size - 1;
+    int last = -1;
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            last = mid;
+            low = mid + 1;
+        } else if (nums[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return last;
+}
+
+int main() {
+    int nums1[] = {5, 7, 7, 8, 8, 8, 10};
+    int size1 = sizeof(nums1) / sizeof(nums1[0]);
+    int target1 = 8;
+    
+    int first1 = find_first(nums1, size1, target1);
+    int last1 = find_last(nums1, size1, target1);
+    
+    printf("Target %d: [%d, %d]\n", target1, first1, last1);
+
+    int nums2[] = {5, 7, 7, 8, 8, 8, 10};
+    int size2 = sizeof(nums2) / sizeof(nums2[0]);
+    int target2 = 6;
+    
+    int first2 = find_first(nums2, size2, target2);
+    int last2 = find_last(nums2, size2, target2);
+    
+    printf("Target %d: [%d, %d]\n", target2, first2, last2);
+
+    return 0;
+}
