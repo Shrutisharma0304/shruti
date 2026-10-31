@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+
+
+int findPivotInteger(int n) {
+   
+    int total_sum = n * (n + 1) / 2;
+    
+   
+    int root = (int)sqrt(total_sum);
+    
+    
+    if (root * root == total_sum) {
+        return root;
+    }
+    
+   
+    return -1;
+}
+
+int main() {
+    
+    int n1 = 8;
+    printf("Pivot integer for n = %d: %d\n", n1, findPivotInteger(n1)); 
+   
+    int n2 = 1;
+    printf("Pivot integer for n = %d: %d\n", n2, findPivotInteger(n2)); 
+    
+   
+    int n3 = 4;
+    printf("Pivot integer for n = %d: %d\n", n3, findPivotInteger(n3));
+    return 0;
+}
