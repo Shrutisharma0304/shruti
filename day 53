@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+
+int findPivotIndex(int nums[], int size) {
+    int total_sum = 0;
+    
+    
+    for (int i = 0; i < size; i++) {
+        total_sum += nums[i];
+    }
+    
+    int left_sum = 0;
+    
+   
+    for (int i = 0; i < size; i++) {
+       
+        int right_sum = total_sum - left_sum - nums[i];
+        
+      
+        if (left_sum == right_sum) {
+            return i; 
+        }
+        
+        
+        left_sum += nums[i];
+    }
+    
+    
+    return -1;
+}
+
+int main() {
+   
+    int nums1[] = {1, 7, 3, 6, 5, 6};
+    int size1 = sizeof(nums1) / sizeof(nums1[0]);
+    printf("Pivot index: %d\n", findPivotIndex(nums1, size1)); 
+   
+    int nums2[] = {1, 2, 3};
+    int size2 = sizeof(nums2) / sizeof(nums2[0]);
+    printf("Pivot index: %d\n", findPivotIndex(nums2, size2));
+    int nums3[] = {2, 1, -1};
+    int size3 = sizeof(nums3) / sizeof(nums3[0]);
+    printf("Pivot index: %d\n", findPivotIndex(nums3, size3));
+
+    return 0;
+}
