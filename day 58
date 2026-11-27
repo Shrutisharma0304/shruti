@@ -1,0 +1,40 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i;
+    
+    printf("Enter the size of array: ");
+    scanf("%d", &n);
+
+    int nums[n], answer[n];
+
+    printf("Enter array elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &nums[i]);
+    }
+
+    // Calculate product of all elements
+    int product = 1;
+
+    for(i = 0; i < n; i++)
+    {
+        product = product * nums[i];
+    }
+
+    // Calculate product except current element
+    for(i = 0; i < n; i++)
+    {
+        answer[i] = product / nums[i];
+    }
+
+    printf("Answer array:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", answer[i]);
+    }
+
+    return 0;
+}
