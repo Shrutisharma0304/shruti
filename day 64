@@ -1,0 +1,40 @@
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char s[100];
+    int i, j, start, maxLength = 0, length;
+
+    printf("Enter a string: ");
+    scanf("%s", s);
+
+    length = strlen(s);
+
+    for(i = 0; i < length; i++)
+    {
+        int visited[256] = {0};
+        int count = 0;
+
+        for(j = i; j < length; j++)
+        {
+            if(visited[(unsigned char)s[j]] == 1)
+            {
+                break;
+            }
+
+            visited[(unsigned char)s[j]] = 1;
+            count++;
+        }
+
+        if(count > maxLength)
+        {
+            maxLength = count;
+        }
+    }
+
+    printf("Length of longest substring = %d", maxLength);
+
+    return 0;
+}
