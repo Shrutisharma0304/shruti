@@ -1,0 +1,29 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i, sum = 0, missing;
+
+    printf("Enter the size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter array elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+        sum = sum + arr[i];
+    }
+
+    // Calculate expected sum from 0 to n
+    int total = n * (n + 1) / 2;
+
+    // Find missing number
+    missing = total - sum;
+
+    printf("Missing number = %d", missing);
+
+    return 0;
+}
